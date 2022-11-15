@@ -8,6 +8,7 @@
 
 ## :gear: Setup
 Follow the Unreal Engine tutorial links [Source Effect](https://forums.unrealengine.com/t/making-a-ue-plugin-for-audio-from-scratch/152606) or [Metasound Node](https://dev.epicgames.com/community/learning/tutorials/KJWk/writing-a-pitch-shift-metasound-node) to create the plugin project.
+The SimpleDSP folder includes the DSP processing.
 
 Some notes regarding adding dependencies:
 
