@@ -23,7 +23,6 @@ namespace Metasound
 	{
 		TremoloDSPProcessor.Init();
 		TremoloDSPProcessor.InverseSampleRate = 1 / InSettings.GetSampleRate();
-		TremoloDSPProcessor.LfoPhase = 0.0f;
 	}
 
 	//------------------------------------------------------------------------------------
@@ -61,7 +60,6 @@ namespace Metasound
 
 		TremoloDSPProcessor.SetLFODepth(*LFODepth);
 		TremoloDSPProcessor.SetLFORate(*LFORate);
-		//TremoloDSPProcessor.SetTremoloType(*TremoloType);
 
 		TremoloDSPProcessor.ProcessAudioBuffer(InputAudio, OutputAudio, NumSamples);
 	}
@@ -80,7 +78,7 @@ namespace Metasound
 			Info.MajorVersion = 1;
 			Info.MinorVersion = 0;
 			Info.DisplayName = LOCTEXT("Metasound_TremoloDisplayName", "Tremolo");
-			Info.Description = LOCTEXT("Metasound_TremoloNodeDescription", "Applies tremolo effect to the audio input.");
+			Info.Description = LOCTEXT("Metasound_TremoloNodeDescription", "Applies tremolo (amplitude modulation) effect to the audio input.");
 			Info.Author = PluginAuthor;
 			Info.PromptIfMissing = PluginNodeMissingPrompt;
 			Info.DefaultInterface = GetVertexInterface();

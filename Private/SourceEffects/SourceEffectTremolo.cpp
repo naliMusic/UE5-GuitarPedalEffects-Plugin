@@ -6,7 +6,6 @@ void FSourceEffectTremolo::Init(const FSoundEffectSourceInitData& InitData)
     NumChannels = InitData.NumSourceChannels;
     TremoloDSPProcessor.Init();
     TremoloDSPProcessor.InverseSampleRate = 1 / InitData.SampleRate;
-    TremoloDSPProcessor.LfoPhase = 0.0f;
 }
 
 void FSourceEffectTremolo::OnPresetChanged()
