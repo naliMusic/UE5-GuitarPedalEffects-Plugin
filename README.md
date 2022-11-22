@@ -27,7 +27,7 @@ The Tremolo effect has 2 parameters Rate, and Depth.
 - [x] DEPTH: Intensity of the Tremolo (0% - 100%) range from 0.0 to 1.0 (default is 0.5 or 50%)
 
 Here is the UI:  
-![MetasoundTremolo UI](https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin/blob/main/Img/mts_tremolo.jpg) ![SoureEffect UI](https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin/blob/main/Img/se_tremolo.jpg)
+![MetasoundTremolo UI](https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin/blob/main/Img/mts_tremolo.jpg) ![SoureEffect UI](https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin/blob/main/Img/sceff_tremolo.jpg)
 
 ## :guitar: Vibrato
 Vibrato is a modulated delay effect. This is a simple implementation of Vibrato effect using sine waveform as the LFO and linear interpolation.
@@ -36,6 +36,6 @@ The Vibrato effect has 2 parameters Rate, and Width.
 - [x] WIDTH: Delay length (ms) range from 1.0 to 50.0 (default is 10.0ms)
 
 Here is the UI:  
-![MetasoundTremolo UI](https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin/blob/main/Img/mts_vibrato.jpg) ![SoureEffect UI](https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin/blob/main/Img/se_vibrato.jpg)
+![MetasoundTremolo UI](https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin/blob/main/Img/mts_vibrato.jpg) ![SoureEffect UI](https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin/blob/main/Img/sceff_vibrato.jpg)
 
 ## :guitar: More-effects
