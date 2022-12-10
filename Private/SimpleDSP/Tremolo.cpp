@@ -10,9 +10,10 @@ SimpleDSP::FTremolo::~FTremolo()
 {
 }
 
-void SimpleDSP::FTremolo::Init()
+void SimpleDSP::FTremolo::Init(float sr)
 {
 	TremoloLFO.LfoPhase = 0.0f;
+	InverseSampleRate = 1 / sr;
 }
 
 void SimpleDSP::FTremolo::SetLFODepth(float Depth)

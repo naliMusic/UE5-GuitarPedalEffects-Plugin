@@ -15,7 +15,7 @@ namespace SimpleDSP
 		FVibrato();
 		virtual ~FVibrato();
 
-		void Init();
+		void Init(float sr);
 		void SetVibratoWidth(float Width);
 		void SetLFORate(float Rate);
 		void ProcessAudioBuffer(const float* InBuffer, float* OutBuffer, int32 NumSamples);

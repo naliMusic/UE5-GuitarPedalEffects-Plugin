@@ -11,9 +11,17 @@ SimpleDSP::FVibrato::~FVibrato()
 {
 }
 
-void SimpleDSP::FVibrato::Init()
+void SimpleDSP::FVibrato::Init(float sr)
 {
 	VibratoLFO.LfoPhase = 0.0f;
+	SampleRate = sr;
+	delayWritePosition = 0;
+
+	delayBufferSamples = (int)(MAX_VIBRATO_DELAY_TIME_IN_MILISECOND * 0.001 * SampleRate) + 1;
+	if (delayBufferSamples < 1)
+		delayBufferSamples = 1;
+
+	DelayBuffer.SetNumZeroed(delayBufferSamples, true);
 }
 
 void SimpleDSP::FVibrato::SetVibratoWidth(float Width)

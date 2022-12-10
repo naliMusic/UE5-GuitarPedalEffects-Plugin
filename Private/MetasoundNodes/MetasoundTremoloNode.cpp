@@ -21,8 +21,7 @@ namespace Metasound
 		, LFODepth(InLFODepth)
 		//, TremoloType(InTremoloType)
 	{
-		TremoloDSPProcessor.Init();
-		TremoloDSPProcessor.InverseSampleRate = 1 / InSettings.GetSampleRate();
+		TremoloDSPProcessor.Init(InSettings.GetSampleRate());
 	}
 
 	//------------------------------------------------------------------------------------

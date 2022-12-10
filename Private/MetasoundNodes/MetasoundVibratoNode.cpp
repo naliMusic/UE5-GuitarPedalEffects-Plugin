@@ -20,15 +20,7 @@ namespace Metasound
 		, VibratoWidth(InVibratoWidth)
 		, LFORate(InLFORate)
 	{
-		VibratoDSPProcessor.Init();
-		VibratoDSPProcessor.SampleRate = InSettings.GetSampleRate();
-
-		VibratoDSPProcessor.delayBufferSamples = (int)(MAX_VIBRATO_DELAY_TIME_IN_MILISECOND * 0.001 * InSettings.GetSampleRate()) + 1;
-		if (VibratoDSPProcessor.delayBufferSamples < 1)
-			VibratoDSPProcessor.delayBufferSamples = 1;
-
-		VibratoDSPProcessor.DelayBuffer.SetNumZeroed(VibratoDSPProcessor.delayBufferSamples, true);
-		VibratoDSPProcessor.delayWritePosition = 0;
+		VibratoDSPProcessor.Init(InSettings.GetSampleRate());
 	}
 
 	//------------------------------------------------------------------------------------

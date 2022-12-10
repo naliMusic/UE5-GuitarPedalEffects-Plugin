@@ -11,7 +11,7 @@ namespace SimpleDSP
 		FTremolo();
 		virtual ~FTremolo();
 
-		void Init();
+		void Init(float sr);
 		void SetLFODepth(float Depth);
 		void SetLFORate(float Rate);
 		//void SetTremoloType(ETremoloType InTremoloType);
