@@ -1,0 +1,17 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\srt\\plugins\\ue5-guitarpedaleffects-plugin\\source\\guitareffectplugin\\private\\sourceeffects\\sourceeffecttremolo.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\srt\\intermediate\\build\\win64\\x64\\simplesightreadereditor\\development\\unrealed\\sharedpch.unrealed.project.novalfmtstr.valapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "d:\\srt\\plugins\\ue5-guitarpedaleffects-plugin\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\guitareffectplugin\\definitions.guitareffectplugin.h",
+            "d:\\srt\\plugins\\ue5-guitarpedaleffects-plugin\\source\\guitareffectplugin\\public\\sourceeffects\\sourceeffecttremolo.h",
+            "d:\\srt\\plugins\\ue5-guitarpedaleffects-plugin\\source\\guitareffectplugin\\public\\simpledsp\\tremolo.h",
+            "d:\\srt\\plugins\\ue5-guitarpedaleffects-plugin\\source\\guitareffectplugin\\public\\simpledsp\\lfo.h",
+            "d:\\srt\\plugins\\ue5-guitarpedaleffects-plugin\\intermediate\\build\\win64\\unrealeditor\\inc\\guitareffectplugin\\uht\\sourceeffecttremolo.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
