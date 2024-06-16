@@ -13,11 +13,11 @@ namespace Metasound
 
 	namespace VibratoNode
 	{
-		METASOUND_PARAM(InParamNameAudioInput, "In", "Audio input.")
-		METASOUND_PARAM(InParamNameVibratoWidth, "Width", "Width of the Vibrato [1.0ms - 50.0ms]. Default is 10ms")
-		METASOUND_PARAM(InParamNameLFORate, "Rate", "Frequency of the LFO [0.1Hz - 10Hz]. Default is 2Hz.")
+		METASOUND_PARAM(AudioInput, "In", "Audio input.")
+		METASOUND_PARAM(VibratoWidth, "Width", "Width of the Vibrato [1.0ms - 50.0ms]. Default is 10ms")
+		METASOUND_PARAM(LFORate, "Rate", "Frequency of the LFO [0.1Hz - 10Hz]. Default is 2Hz.")
 
-		METASOUND_PARAM(OutParamNameAudio, "Out", "Audio output.")
+		METASOUND_PARAM(Audio, "Out", "Audio output.")
 	}
 
 
@@ -40,8 +40,8 @@ namespace Metasound
 			const FFloatReadRef& InLFORate
 		);
 
-		virtual FDataReferenceCollection GetInputs() const override;
-		virtual FDataReferenceCollection GetOutputs() const override;
+		virtual void BindInputs(FInputVertexInterfaceData& InVertexData) override;
+		virtual void BindOutputs(FOutputVertexInterfaceData& InVertexData) override;
 
 		void Execute();
 

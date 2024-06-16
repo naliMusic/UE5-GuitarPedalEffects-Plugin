@@ -49,8 +49,8 @@ namespace Metasound
 			//const FEnumTremoloReadRef& InTremoloType
 		);
 
-		virtual FDataReferenceCollection GetInputs() const override;
-		virtual FDataReferenceCollection GetOutputs() const override;
+		virtual void BindInputs(FInputVertexInterfaceData& InVertexData) override;
+		virtual void BindOutputs(FOutputVertexInterfaceData& InVertexData) override;
 
 		void Execute();
 

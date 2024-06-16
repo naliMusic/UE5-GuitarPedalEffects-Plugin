@@ -27,27 +27,22 @@ namespace Metasound
 	//------------------------------------------------------------------------------------
 	// GET INPUTS, OUTPUTS and EXECUTE
 	//------------------------------------------------------------------------------------
-	FDataReferenceCollection FTremoloOperator::GetInputs() const
+
+	void FTremoloOperator::BindInputs(FInputVertexInterfaceData& InVertexData)
 	{
 		using namespace TremoloNode;
 
-		FDataReferenceCollection InputDataReferences;
-		
-		InputDataReferences.AddDataReadReference(METASOUND_GET_PARAM_NAME(InParamNameAudioInput), FAudioBufferReadRef(AudioInput));
-		InputDataReferences.AddDataReadReference(METASOUND_GET_PARAM_NAME(InParamNameLFORate), FFloatReadRef(LFORate));
-		InputDataReferences.AddDataReadReference(METASOUND_GET_PARAM_NAME(InParamNameLFODepth), FFloatReadRef(LFODepth));
-		//InputDataReferences.AddDataReadReference(METASOUND_GET_PARAM_NAME(InParamNameTremoloType), FEnumTremoloReadRef(TremoloType));
+		InVertexData.BindReadVertex(METASOUND_GET_PARAM_NAME(InParamNameAudioInput), AudioInput);
+		InVertexData.BindReadVertex(METASOUND_GET_PARAM_NAME(InParamNameLFORate), LFORate);
+		InVertexData.BindReadVertex(METASOUND_GET_PARAM_NAME(InParamNameLFODepth), LFODepth);
+		//InVertexData.BindReadVertex(METASOUND_GET_PARAM_NAME(InParamNameTremoloType), TremoloType);
 
-		return InputDataReferences;
 	}
 
-	FDataReferenceCollection FTremoloOperator::GetOutputs() const
+	void FTremoloOperator::BindOutputs(FOutputVertexInterfaceData& InVertexData)
 	{
 		using namespace TremoloNode;
-
-		FDataReferenceCollection OutputDataReferences;
-		OutputDataReferences.AddDataReadReference(METASOUND_GET_PARAM_NAME(OutParamNameAudio), FAudioBufferReadRef(AudioOutput));
-		return OutputDataReferences;
+		InVertexData.BindWriteVertex(METASOUND_GET_PARAM_NAME(OutParamNameAudio), AudioOutput);
 	}
 
 	
