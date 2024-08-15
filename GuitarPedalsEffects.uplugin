@@ -1,0 +1,33 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "GuitarPedalEffects",
+  "Description": "Guitar pedals effect (Tremolo, Vibrato, etc.)",
+  "Category": "Audio",
+  "CreatedBy": "nali M @naliMusic",
+  "CreatedByURL": "https://github.com/naliMusic",
+  "DocsURL": "https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "IsEnabledByDefault": true,
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "IsExperimentalVersion": false,
+  "Installed": false,
+  "Modules": [
+
+    {
+      "Name": "GuitarEffectPlugin",
+      "Type": "Runtime",
+      "LoadingPhase": "PreDefault"
+    },
+  ],
+  "Plugins": [
+    {
+      "Name": "Metasound",
+      "Enabled": true
+    },
+
+  ]
+}

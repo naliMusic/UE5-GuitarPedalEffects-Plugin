@@ -8,16 +8,7 @@
 ![Plugin UI](https://github.com/naliMusic/UE5-GuitarPedalEffects-Plugin/blob/main/Img/plugin.jpg)
 
 ## :gear: Setup
-Follow the Unreal Engine tutorial links [Source Effect](https://forums.unrealengine.com/t/making-a-ue-plugin-for-audio-from-scratch/152606) or [Metasound Node](https://dev.epicgames.com/community/learning/tutorials/KJWk/writing-a-pitch-shift-metasound-node) to create the plugin project.
-The SimpleDSP folder includes the DSP processing.
-
-Some notes regarding adding dependencies:
-
-```
-1. Make sure you add UE Metasound dependencies in your *.Build.cs*
-2. Add Metasound Plugins in *.uplugin* file
-3. Generate project file to refresh
-```
+Clone the repo into your project or engine plugin folder.
   
 
 ## :guitar: Tremolo

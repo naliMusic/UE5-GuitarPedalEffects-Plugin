@@ -26,27 +26,23 @@ namespace Metasound
 	//------------------------------------------------------------------------------------
 	// GET INPUTS, OUTPUTS and EXECUTE
 	//------------------------------------------------------------------------------------
-	FDataReferenceCollection FVibratoOperator::GetInputs() const
+
+	//upgraded to new unreal APIs
+	void FVibratoOperator::BindInputs(FInputVertexInterfaceData& InVertexData)
 	{
 		using namespace VibratoNode;
-
-		FDataReferenceCollection InputDataReferences;
-
-		InputDataReferences.AddDataReadReference(METASOUND_GET_PARAM_NAME(InParamNameAudioInput), FAudioBufferReadRef(AudioInput));
-		InputDataReferences.AddDataReadReference(METASOUND_GET_PARAM_NAME(InParamNameVibratoWidth), FFloatReadRef(VibratoWidth));
-		InputDataReferences.AddDataReadReference(METASOUND_GET_PARAM_NAME(InParamNameLFORate), FFloatReadRef(LFORate));
-
-		return InputDataReferences;
+		
+		InVertexData.BindReadVertex(METASOUND_GET_PARAM_NAME(AudioInput), AudioInput);
+		InVertexData.BindReadVertex(METASOUND_GET_PARAM_NAME(VibratoWidth), VibratoWidth);
+		InVertexData.BindReadVertex(METASOUND_GET_PARAM_NAME(LFORate), LFORate);
 	}
 
-	FDataReferenceCollection FVibratoOperator::GetOutputs() const
+	void FVibratoOperator::BindOutputs(FOutputVertexInterfaceData& InVertexData)
 	{
 		using namespace VibratoNode;
-
-		FDataReferenceCollection OutputDataReferences;
-		OutputDataReferences.AddDataReadReference(METASOUND_GET_PARAM_NAME(OutParamNameAudio), FAudioBufferReadRef(AudioOutput));
-		return OutputDataReferences;
+		InVertexData.BindWriteVertex(METASOUND_GET_PARAM_NAME(Audio), AudioOutput);
 	}
+	
 
 
 	void FVibratoOperator::Execute()
@@ -94,29 +90,28 @@ namespace Metasound
 		using namespace VibratoNode;
 		static const FVertexInterface Interface(
 			FInputVertexInterface(
-				TInputDataVertexModel<FAudioBuffer>(METASOUND_GET_PARAM_NAME_AND_METADATA(InParamNameAudioInput)),
-				TInputDataVertexModel<float>(METASOUND_GET_PARAM_NAME_AND_METADATA(InParamNameVibratoWidth), 10.0f),
-				TInputDataVertexModel<float>(METASOUND_GET_PARAM_NAME_AND_METADATA(InParamNameLFORate), 2.0f)
+				TInputDataVertex<FAudioBuffer>(METASOUND_GET_PARAM_NAME_AND_METADATA(AudioInput)),
+				TInputDataVertex<float>(METASOUND_GET_PARAM_NAME_AND_METADATA(VibratoWidth), 10.0f),
+				TInputDataVertex<float>(METASOUND_GET_PARAM_NAME_AND_METADATA(LFORate), 2.0f)
 			),
 
 			FOutputVertexInterface(
-				TOutputDataVertexModel<FAudioBuffer>(METASOUND_GET_PARAM_NAME_AND_METADATA(OutParamNameAudio))
+				TOutputDataVertex<FAudioBuffer>(METASOUND_GET_PARAM_NAME_AND_METADATA(Audio))
 			)
 		);
 
 		return Interface;
 	}
 
-	TUniquePtr<IOperator> FVibratoOperator::CreateOperator(const FCreateOperatorParams& InParams, FBuildErrorArray& OutErrors)
+	TUniquePtr<IOperator> FVibratoOperator::CreateOperator(const FBuildOperatorParams& InParams, FBuildResults& OutResults)
 	{
 		using namespace VibratoNode;
 
-		const FDataReferenceCollection& InputCollection = InParams.InputDataReferences;
-		const FInputVertexInterface& InputInterface = GetVertexInterface().GetInputInterface();
+		const FInputVertexInterfaceData& InputData = InParams.InputData;
 
-		FAudioBufferReadRef AudioIn = InputCollection.GetDataReadReferenceOrConstruct<FAudioBuffer>(METASOUND_GET_PARAM_NAME(InParamNameAudioInput), InParams.OperatorSettings);
-		FFloatReadRef InVibratoWidth = InputCollection.GetDataReadReferenceOrConstructWithVertexDefault<float>(InputInterface, METASOUND_GET_PARAM_NAME(InParamNameVibratoWidth), InParams.OperatorSettings);
-		FFloatReadRef InLFORate = InputCollection.GetDataReadReferenceOrConstructWithVertexDefault<float>(InputInterface, METASOUND_GET_PARAM_NAME(InParamNameLFORate), InParams.OperatorSettings);
+		FAudioBufferReadRef AudioIn = InputData.GetOrConstructDataReadReference<FAudioBuffer>(METASOUND_GET_PARAM_NAME(AudioInput), InParams.OperatorSettings);
+		FFloatReadRef InVibratoWidth = InputData.GetOrConstructDataReadReference<float>(METASOUND_GET_PARAM_NAME(VibratoWidth));
+		FFloatReadRef InLFORate = InputData.GetOrConstructDataReadReference<float>(METASOUND_GET_PARAM_NAME(LFORate));
 	
 		return MakeUnique<FVibratoOperator>(InParams.OperatorSettings, AudioIn, InVibratoWidth, InLFORate);
 	}
